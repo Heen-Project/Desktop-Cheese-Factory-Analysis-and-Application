@@ -1,0 +1,470 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FEBB113-1DB9-4034-94B0-61B2E6AB556A}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Cheese_Factory</RootNamespace>
+    <AssemblyName>Cheese Factory</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
+    <Reference Include="IDAutomation.DataBarFontEncoder">
+      <HintPath>..\..\..\..\..\Desktop\New folder\IDAutomation.DataBarFontEncoder.dll</HintPath>
+    </Reference>
+    <Reference Include="IDAutomation.IntelligentMail">
+      <HintPath>..\..\..\..\..\Desktop\New folder\IDAutomation.IntelligentMail.dll</HintPath>
+    </Reference>
+    <Reference Include="IDAutomation.NetAssembly">
+      <HintPath>..\..\..\..\..\Desktop\New folder\IDAutomation.NetAssembly.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Cheese.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CheeseModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheeseModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CheeseModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CheeseModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CheeseModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DefectiveProduct.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailCustomer.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailEmployee.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailFinalGoodsReceipt.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailGoodsReceipt.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailGoodsReceiptCheck.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailSalesTransaction.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailSuppliesTransaction.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DetailWarehouse.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Employee.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="FC_SalesInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FC_SalesInvoice.Designer.cs">
+      <DependentUpon>FC_SalesInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FC_SuppliesInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FC_SuppliesInvoice.Designer.cs">
+      <DependentUpon>FC_SuppliesInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FinalGoodsReceipt.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoodsReceipt.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GoodsReceiptCheck.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="IS_FinalGoodsReceipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IS_FinalGoodsReceipt.Designer.cs">
+      <DependentUpon>IS_FinalGoodsReceipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IS_SuppliesInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IS_SuppliesInvoice.Designer.cs">
+      <DependentUpon>IS_SuppliesInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Milk.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OP_OutgoingReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OP_OutgoingReport.Designer.cs">
+      <DependentUpon>OP_OutgoingReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OutgoingReport.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="QM_CheckIncomingSupplies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QM_CheckIncomingSupplies.Designer.cs">
+      <DependentUpon>QM_CheckIncomingSupplies.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QM_CheckOutgoingProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QM_CheckOutgoingProduct.Designer.cs">
+      <DependentUpon>QM_CheckOutgoingProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="QM_DefectiveProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="QM_DefectiveProduct.Designer.cs">
+      <DependentUpon>QM_DefectiveProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalesInvoice.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SalesTransaction.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Schedule.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_VerifyInvoice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SP_VerifyInvoice.Designer.cs">
+      <DependentUpon>SP_VerifyInvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SuppliesTransaction.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Vendor.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="VerifiedInvoice.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Warehouse.cs">
+      <DependentUpon>CheeseModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="_BarcodeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_BarcodeForm.Designer.cs">
+      <DependentUpon>_BarcodeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalReport_SuppliesTransaction.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport_SuppliesTransaction.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="IS_ViewPurchaseOrder.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IS_ViewPurchaseOrder.Designer.cs">
+      <DependentUpon>IS_ViewPurchaseOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_LoginForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_LoginForm.Designer.cs">
+      <DependentUpon>_LoginForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="_MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="_MainForm.Designer.cs">
+      <DependentUpon>_MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HR_ManageEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HR_ManageEmployee.Designer.cs">
+      <DependentUpon>HR_ManageEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OP_ViewPackingSchedule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OP_ViewPackingSchedule.Designer.cs">
+      <DependentUpon>OP_ViewPackingSchedule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportForm_SuppliesTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReportForm_SuppliesTransaction.Designer.cs">
+      <DependentUpon>ReportForm_SuppliesTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SD_ManageCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SD_ManageCustomer.Designer.cs">
+      <DependentUpon>SD_ManageCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SD_SalesTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SD_SalesTransaction.Designer.cs">
+      <DependentUpon>SD_SalesTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Cheese.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SP_Cheese.Designer.cs">
+      <DependentUpon>SP_Cheese.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Milk.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SP_Milk.Designer.cs">
+      <DependentUpon>SP_Milk.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SP_SuppliesTransaction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SP_SuppliesTransaction.Designer.cs">
+      <DependentUpon>SP_SuppliesTransaction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SP_Vendor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SP_Vendor.Designer.cs">
+      <DependentUpon>SP_Vendor.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="FC_SalesInvoice.resx">
+      <DependentUpon>FC_SalesInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FC_SuppliesInvoice.resx">
+      <DependentUpon>FC_SuppliesInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IS_FinalGoodsReceipt.resx">
+      <DependentUpon>IS_FinalGoodsReceipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IS_SuppliesInvoice.resx">
+      <DependentUpon>IS_SuppliesInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OP_OutgoingReport.resx">
+      <DependentUpon>OP_OutgoingReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QM_CheckIncomingSupplies.resx">
+      <DependentUpon>QM_CheckIncomingSupplies.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QM_CheckOutgoingProduct.resx">
+      <DependentUpon>QM_CheckOutgoingProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="QM_DefectiveProduct.resx">
+      <DependentUpon>QM_DefectiveProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SP_VerifyInvoice.resx">
+      <DependentUpon>SP_VerifyInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_BarcodeForm.resx">
+      <DependentUpon>_BarcodeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport_SuppliesTransaction.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport_SuppliesTransaction.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IS_ViewPurchaseOrder.resx">
+      <DependentUpon>IS_ViewPurchaseOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_LoginForm.resx">
+      <DependentUpon>_LoginForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="_MainForm.resx">
+      <DependentUpon>_MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HR_ManageEmployee.resx">
+      <DependentUpon>HR_ManageEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OP_ViewPackingSchedule.resx">
+      <DependentUpon>OP_ViewPackingSchedule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ReportForm_SuppliesTransaction.resx">
+      <DependentUpon>ReportForm_SuppliesTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SD_ManageCustomer.resx">
+      <DependentUpon>SD_ManageCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SD_SalesTransaction.resx">
+      <DependentUpon>SD_SalesTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SP_Cheese.resx">
+      <DependentUpon>SP_Cheese.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SP_Milk.resx">
+      <DependentUpon>SP_Milk.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SP_SuppliesTransaction.resx">
+      <DependentUpon>SP_SuppliesTransaction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SP_Vendor.resx">
+      <DependentUpon>SP_Vendor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="CheeseModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>CheeseModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="CheeseModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CheeseModel.edmx</DependentUpon>
+      <LastGenOutput>CheeseModel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="CheeseModel.edmx.diagram">
+      <DependentUpon>CheeseModel.edmx</DependentUpon>
+    </None>
+    <None Include="CheeseModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>CheeseModel.edmx</DependentUpon>
+      <LastGenOutput>CheeseModel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Cheese.mdf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Cheese_log.ldf">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>Cheese.mdf</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

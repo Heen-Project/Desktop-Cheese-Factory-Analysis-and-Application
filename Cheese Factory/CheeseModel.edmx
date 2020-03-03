@@ -1,0 +1,894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="CheeseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Cheese">
+          <Key>
+            <PropertyRef Name="CheeseID" />
+          </Key>
+          <Property Name="CheeseID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="CheeseName" Type="varchar" MaxLength="25" />
+          <Property Name="CheeseInputDate" Type="datetime" />
+          <Property Name="InputedBy" Type="varchar" MaxLength="7" />
+          <Property Name="CheeseLifeTime" Type="date" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="CustomerName" Type="varchar" MaxLength="25" />
+          <Property Name="CustomerGender" Type="varchar" MaxLength="10" />
+          <Property Name="CustomerAddress" Type="varchar" MaxLength="100" />
+          <Property Name="CustomerContactNumber" Type="varchar" MaxLength="25" />
+          <Property Name="CustomerEmail" Type="varchar" MaxLength="50" />
+          <Property Name="RegisterDate" Type="datetime" />
+          <Property Name="RegisterBy" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="DefectiveProduct">
+          <Key>
+            <PropertyRef Name="DefectiveProduct" />
+          </Key>
+          <Property Name="DefectiveProduct" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetailCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="CustomerID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="7" />
+          <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetailEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="LastUpdateDate" />
+          </Key>
+          <Property Name="EmployeeID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="varchar" MaxLength="7" />
+          <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetailFinalGoodsReceipt">
+          <Key>
+            <PropertyRef Name="FinalGoodsReceiptID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="FinalGoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="VendorID" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="DetailGoodsReceipt">
+          <Key>
+            <PropertyRef Name="GoodsReceiptID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="GoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="VendorID" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="DetailGoodsReceiptCheck">
+          <Key>
+            <PropertyRef Name="GoodsReceiptCheckID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="GoodsReceiptCheckID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="VendorID" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="DetailSalesTransaction">
+          <Key>
+            <PropertyRef Name="SalesTransactionID" />
+            <PropertyRef Name="CheeseID" />
+          </Key>
+          <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="CheeseID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="ItemPrice" Type="int" />
+          <Property Name="TotalPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="DetailSuppliesTransaction">
+          <Key>
+            <PropertyRef Name="SuppliesTransactionID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Price" Type="int" />
+          <Property Name="VendorID" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="DetailWarehouse">
+          <Key>
+            <PropertyRef Name="WarehouseID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="WarehouseID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="ProductID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="Quantity" Type="int" />
+          <Property Name="Status" Type="varchar(max)" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="EmployeeName" Type="varchar" MaxLength="25" />
+          <Property Name="EmployeeGender" Type="varchar" MaxLength="25" />
+          <Property Name="Division" Type="varchar" MaxLength="25" />
+          <Property Name="Salary" Type="int" />
+          <Property Name="DateOfBirth" Type="date" />
+          <Property Name="JoinDate" Type="datetime" />
+          <Property Name="EmployeeEmail" Type="varchar" MaxLength="50" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="25" />
+          <Property Name="RegisteredBy" Type="varchar" MaxLength="7" />
+          <Property Name="EmployeeStatus" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="FinalGoodsReceipt">
+          <Key>
+            <PropertyRef Name="FinalGoodsReceiptID" />
+          </Key>
+          <Property Name="FinalGoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="GoodsReceiptCheckID" Type="varchar" MaxLength="7" />
+          <Property Name="FinalGoodsReceiptDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="GoodsReceipt">
+          <Key>
+            <PropertyRef Name="GoodsReceiptID" />
+          </Key>
+          <Property Name="GoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" />
+          <Property Name="GoodsReceiptDate" Type="datetime" />
+          <Property Name="GoodsReceiptDescription" Type="varchar" MaxLength="100" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="GoodsReceiptCheck">
+          <Key>
+            <PropertyRef Name="GoodsReceiptCheckID" />
+          </Key>
+          <Property Name="GoodsReceiptCheckID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="GoodsReceiptID" Type="varchar" MaxLength="7" />
+          <Property Name="GoodsReceiptCheckDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="Milk">
+          <Key>
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="MilkName" Type="varchar" MaxLength="25" />
+          <Property Name="MilkInputDate" Type="datetime" />
+          <Property Name="InputBy" Type="varchar" MaxLength="7" />
+          <Property Name="MilkLifeTime" Type="date" />
+        </EntityType>
+        <EntityType Name="OutgoingReport">
+          <Key>
+            <PropertyRef Name="OutgoingReportID" />
+          </Key>
+          <Property Name="OutgoingReportID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" />
+          <Property Name="ScheduleID" Type="varchar" MaxLength="7" />
+          <Property Name="CheckStatus" Type="varchar" MaxLength="25" />
+          <Property Name="DeliveryStatus" Type="varchar" MaxLength="25" />
+          <Property Name="PackedBy" Type="varchar" MaxLength="7" />
+          <Property Name="ShippedBy" Type="varchar" MaxLength="7" />
+          <Property Name="OutgoingReportDescription" Type="varchar" MaxLength="100" />
+          <Property Name="CheckedBy" Type="varchar" MaxLength="7" />
+          <Property Name="CheckedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="SalesInvoice">
+          <Key>
+            <PropertyRef Name="SalesInvoiceID" />
+          </Key>
+          <Property Name="SalesInvoiceID" Type="varchar" MaxLength="7" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SalesTransaction">
+          <Key>
+            <PropertyRef Name="SalesTransactionID" />
+          </Key>
+          <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="CustomerID" Type="varchar" MaxLength="7" />
+          <Property Name="SalesTransactionDate" Type="datetime" />
+          <Property Name="PaymentType" Type="varchar" MaxLength="25" />
+          <Property Name="ShippingLocation" Type="varchar" MaxLength="50" />
+          <Property Name="Transportation" Type="varchar" MaxLength="50" />
+          <Property Name="ShippingTime" Type="datetime" />
+          <Property Name="NumberOfBatch" Type="int" />
+          <Property Name="SalesTransactionStatus" Type="varchar" MaxLength="25" />
+          <Property Name="InsertBy" Type="varchar" MaxLength="7" />
+          <Property Name="InsertDate" Type="datetime" />
+          <Property Name="ConfirmBy" Type="varchar" MaxLength="7" />
+          <Property Name="ConfirmDate" Type="datetime" />
+          <Property Name="TransportPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+            <PropertyRef Name="SalesTransactionID" />
+          </Key>
+          <Property Name="ScheduleID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="BatchNumberSchedule" Type="int" />
+          <Property Name="PackingDate" Type="date" />
+          <Property Name="ShippingDate" Type="date" />
+          <Property Name="ScheduleStatus" Type="varchar" MaxLength="25" />
+        </EntityType>
+        <EntityType Name="SuppliesTransaction">
+          <Key>
+            <PropertyRef Name="SuppliesTransactionID" />
+          </Key>
+          <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="SuppliesTransactionDate" Type="datetime" />
+          <Property Name="SuppliesTransactionStatus" Type="varchar" MaxLength="25" />
+          <Property Name="SuppliesTransactionDescription" Type="varchar" MaxLength="100" />
+          <Property Name="RequestBy" Type="varchar" MaxLength="7" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="VendorName" Type="varchar" MaxLength="25" />
+          <Property Name="VendorRegisterDate" Type="datetime" />
+          <Property Name="VendorRegisterBy" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityType Name="VerifiedInvoice">
+          <Key>
+            <PropertyRef Name="VerifiedInvoiceID" />
+          </Key>
+          <Property Name="VerifiedInvoiceID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="FinalGoodsReceiptID" Type="varchar" MaxLength="7" />
+          <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" />
+          <Property Name="VerifiedInvoiceDate" Type="datetime" />
+          <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+          <Property Name="VerifiedInvoiceStatus" Type="varchar" MaxLength="25" />
+          <Property Name="ApprovedBy" Type="varchar" MaxLength="7" />
+          <Property Name="ApprovedDate" Type="datetime" />
+          <Property Name="PaidBy" Type="varchar" MaxLength="7" />
+          <Property Name="PaidConfirmationDate" Type="datetime" />
+          <Property Name="TotalPrice" Type="int" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseID" />
+          </Key>
+          <Property Name="WarehouseID" Type="varchar" MaxLength="7" Nullable="false" />
+          <Property Name="UpdatedDate" Type="datetime" />
+          <Property Name="UpdatedBy" Type="varchar" MaxLength="7" />
+        </EntityType>
+        <EntityContainer Name="CheeseModelStoreContainer">
+          <EntitySet Name="Cheese" EntityType="Self.Cheese" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DefectiveProduct" EntityType="Self.DefectiveProduct" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailCustomer" EntityType="Self.DetailCustomer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailEmployee" EntityType="Self.DetailEmployee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailFinalGoodsReceipt" EntityType="Self.DetailFinalGoodsReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailGoodsReceipt" EntityType="Self.DetailGoodsReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailGoodsReceiptCheck" EntityType="Self.DetailGoodsReceiptCheck" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailSalesTransaction" EntityType="Self.DetailSalesTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailSuppliesTransaction" EntityType="Self.DetailSuppliesTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DetailWarehouse" EntityType="Self.DetailWarehouse" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FinalGoodsReceipt" EntityType="Self.FinalGoodsReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoodsReceipt" EntityType="Self.GoodsReceipt" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GoodsReceiptCheck" EntityType="Self.GoodsReceiptCheck" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Milk" EntityType="Self.Milk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="OutgoingReport" EntityType="Self.OutgoingReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesInvoice" EntityType="Self.SalesInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SalesTransaction" EntityType="Self.SalesTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SuppliesTransaction" EntityType="Self.SuppliesTransaction" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VerifiedInvoice" EntityType="Self.VerifiedInvoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="CheeseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Cheese">
+          <Key>
+            <PropertyRef Name="CheeseID" />
+          </Key>
+          <Property Name="CheeseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CheeseName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CheeseInputDate" Type="DateTime" Precision="3" />
+          <Property Name="InputedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CheeseLifeTime" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerContactNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="RegisterBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DefectiveProduct">
+          <Key>
+            <PropertyRef Name="DefectiveProduct1" />
+          </Key>
+          <Property Name="DefectiveProduct1" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DetailCustomer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+            <PropertyRef Name="LastUpdatedDate" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="DetailEmployee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="LastUpdateDate" />
+          </Key>
+          <Property Name="EmployeeID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="LastUpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="LastUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+        </EntityType>
+        <EntityType Name="DetailFinalGoodsReceipt">
+          <Key>
+            <PropertyRef Name="FinalGoodsReceiptID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="FinalGoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DetailGoodsReceipt">
+          <Key>
+            <PropertyRef Name="GoodsReceiptID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="GoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DetailGoodsReceiptCheck">
+          <Key>
+            <PropertyRef Name="GoodsReceiptCheckID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="GoodsReceiptCheckID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DetailSalesTransaction">
+          <Key>
+            <PropertyRef Name="SalesTransactionID" />
+            <PropertyRef Name="CheeseID" />
+          </Key>
+          <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CheeseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="ItemPrice" Type="Int32" />
+          <Property Name="TotalPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DetailSuppliesTransaction">
+          <Key>
+            <PropertyRef Name="SuppliesTransactionID" />
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Price" Type="Int32" />
+          <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DetailWarehouse">
+          <Key>
+            <PropertyRef Name="WarehouseID" />
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="WarehouseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ProductID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Quantity" Type="Int32" />
+          <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EmployeeName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeGender" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Division" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="Salary" Type="Int32" />
+          <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+          <Property Name="JoinDate" Type="DateTime" Precision="3" />
+          <Property Name="EmployeeEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="RegisteredBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="EmployeeStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="FinalGoodsReceipt">
+          <Key>
+            <PropertyRef Name="FinalGoodsReceiptID" />
+          </Key>
+          <Property Name="FinalGoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GoodsReceiptCheckID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="FinalGoodsReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GoodsReceipt">
+          <Key>
+            <PropertyRef Name="GoodsReceiptID" />
+          </Key>
+          <Property Name="GoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="GoodsReceiptDate" Type="DateTime" Precision="3" />
+          <Property Name="GoodsReceiptDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="GoodsReceiptCheck">
+          <Key>
+            <PropertyRef Name="GoodsReceiptCheckID" />
+          </Key>
+          <Property Name="GoodsReceiptCheckID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="GoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="GoodsReceiptCheckDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Milk">
+          <Key>
+            <PropertyRef Name="MilkID" />
+          </Key>
+          <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MilkName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="MilkInputDate" Type="DateTime" Precision="3" />
+          <Property Name="InputBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="MilkLifeTime" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="OutgoingReport">
+          <Key>
+            <PropertyRef Name="OutgoingReportID" />
+          </Key>
+          <Property Name="OutgoingReportID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="ScheduleID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CheckStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="DeliveryStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="PackedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="ShippedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="OutgoingReportDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CheckedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CheckedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="SalesTransaction">
+          <Key>
+            <PropertyRef Name="SalesTransactionID" />
+          </Key>
+          <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="SalesTransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="PaymentType" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ShippingLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Transportation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ShippingTime" Type="DateTime" Precision="3" />
+          <Property Name="NumberOfBatch" Type="Int32" />
+          <Property Name="SalesTransactionStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="InsertBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="InsertDate" Type="DateTime" Precision="3" />
+          <Property Name="ConfirmBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+          <Property Name="TransportPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Schedule">
+          <Key>
+            <PropertyRef Name="ScheduleID" />
+            <PropertyRef Name="SalesTransactionID" />
+          </Key>
+          <Property Name="ScheduleID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="BatchNumberSchedule" Type="Int32" />
+          <Property Name="PackingDate" Type="DateTime" Precision="0" />
+          <Property Name="ShippingDate" Type="DateTime" Precision="0" />
+          <Property Name="ScheduleStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="SuppliesTransaction">
+          <Key>
+            <PropertyRef Name="SuppliesTransactionID" />
+          </Key>
+          <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SuppliesTransactionDate" Type="DateTime" Precision="3" />
+          <Property Name="SuppliesTransactionStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="SuppliesTransactionDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="RequestBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Vendor">
+          <Key>
+            <PropertyRef Name="VendorID" />
+          </Key>
+          <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VendorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="VendorRegisterDate" Type="DateTime" Precision="3" />
+          <Property Name="VendorRegisterBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="VerifiedInvoice">
+          <Key>
+            <PropertyRef Name="VerifiedInvoiceID" />
+          </Key>
+          <Property Name="VerifiedInvoiceID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FinalGoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="VerifiedInvoiceDate" Type="DateTime" Precision="3" />
+          <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="VerifiedInvoiceStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+          <Property Name="PaidBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="PaidConfirmationDate" Type="DateTime" Precision="3" />
+          <Property Name="TotalPrice" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Warehouse">
+          <Key>
+            <PropertyRef Name="WarehouseID" />
+          </Key>
+          <Property Name="WarehouseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="UpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityContainer Name="CheeseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Cheese" EntityType="Self.Cheese" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="DefectiveProducts" EntityType="Self.DefectiveProduct" />
+          <EntitySet Name="DetailCustomers" EntityType="Self.DetailCustomer" />
+          <EntitySet Name="DetailEmployees" EntityType="Self.DetailEmployee" />
+          <EntitySet Name="DetailFinalGoodsReceipts" EntityType="Self.DetailFinalGoodsReceipt" />
+          <EntitySet Name="DetailGoodsReceipts" EntityType="Self.DetailGoodsReceipt" />
+          <EntitySet Name="DetailGoodsReceiptChecks" EntityType="Self.DetailGoodsReceiptCheck" />
+          <EntitySet Name="DetailSalesTransactions" EntityType="Self.DetailSalesTransaction" />
+          <EntitySet Name="DetailSuppliesTransactions" EntityType="Self.DetailSuppliesTransaction" />
+          <EntitySet Name="DetailWarehouses" EntityType="Self.DetailWarehouse" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="FinalGoodsReceipts" EntityType="Self.FinalGoodsReceipt" />
+          <EntitySet Name="GoodsReceipts" EntityType="Self.GoodsReceipt" />
+          <EntitySet Name="GoodsReceiptChecks" EntityType="Self.GoodsReceiptCheck" />
+          <EntitySet Name="Milk" EntityType="Self.Milk" />
+          <EntitySet Name="OutgoingReports" EntityType="Self.OutgoingReport" />
+          <EntitySet Name="SalesTransactions" EntityType="Self.SalesTransaction" />
+          <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+          <EntitySet Name="SuppliesTransactions" EntityType="Self.SuppliesTransaction" />
+          <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+          <EntitySet Name="VerifiedInvoices" EntityType="Self.VerifiedInvoice" />
+          <EntitySet Name="Warehouses" EntityType="Self.Warehouse" />
+          <EntitySet Name="SalesInvoices" EntityType="CheeseModel.SalesInvoice" />
+        </EntityContainer>
+        <EntityType Name="SalesInvoice">
+          <Key>
+            <PropertyRef Name="SalesInvoiceID" />
+          </Key>
+          <Property Name="SalesInvoiceID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="CheeseModelStoreContainer" CdmEntityContainer="CheeseEntities">
+          <EntitySetMapping Name="Cheese">
+            <EntityTypeMapping TypeName="CheeseModel.Cheese">
+              <MappingFragment StoreEntitySet="Cheese">
+                <ScalarProperty Name="CheeseID" ColumnName="CheeseID" />
+                <ScalarProperty Name="CheeseName" ColumnName="CheeseName" />
+                <ScalarProperty Name="CheeseInputDate" ColumnName="CheeseInputDate" />
+                <ScalarProperty Name="InputedBy" ColumnName="InputedBy" />
+                <ScalarProperty Name="CheeseLifeTime" ColumnName="CheeseLifeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="CheeseModel.Customer">
+              <MappingFragment StoreEntitySet="Customer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="CustomerGender" ColumnName="CustomerGender" />
+                <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+                <ScalarProperty Name="CustomerContactNumber" ColumnName="CustomerContactNumber" />
+                <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+                <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+                <ScalarProperty Name="RegisterBy" ColumnName="RegisterBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DefectiveProducts">
+            <EntityTypeMapping TypeName="CheeseModel.DefectiveProduct">
+              <MappingFragment StoreEntitySet="DefectiveProduct">
+                <ScalarProperty Name="DefectiveProduct1" ColumnName="DefectiveProduct" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailCustomers">
+            <EntityTypeMapping TypeName="CheeseModel.DetailCustomer">
+              <MappingFragment StoreEntitySet="DetailCustomer">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailEmployees">
+            <EntityTypeMapping TypeName="CheeseModel.DetailEmployee">
+              <MappingFragment StoreEntitySet="DetailEmployee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+                <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailFinalGoodsReceipts">
+            <EntityTypeMapping TypeName="CheeseModel.DetailFinalGoodsReceipt">
+              <MappingFragment StoreEntitySet="DetailFinalGoodsReceipt">
+                <ScalarProperty Name="FinalGoodsReceiptID" ColumnName="FinalGoodsReceiptID" />
+                <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailGoodsReceipts">
+            <EntityTypeMapping TypeName="CheeseModel.DetailGoodsReceipt">
+              <MappingFragment StoreEntitySet="DetailGoodsReceipt">
+                <ScalarProperty Name="GoodsReceiptID" ColumnName="GoodsReceiptID" />
+                <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailGoodsReceiptChecks">
+            <EntityTypeMapping TypeName="CheeseModel.DetailGoodsReceiptCheck">
+              <MappingFragment StoreEntitySet="DetailGoodsReceiptCheck">
+                <ScalarProperty Name="GoodsReceiptCheckID" ColumnName="GoodsReceiptCheckID" />
+                <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailSalesTransactions">
+            <EntityTypeMapping TypeName="CheeseModel.DetailSalesTransaction">
+              <MappingFragment StoreEntitySet="DetailSalesTransaction">
+                <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+                <ScalarProperty Name="CheeseID" ColumnName="CheeseID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailSuppliesTransactions">
+            <EntityTypeMapping TypeName="CheeseModel.DetailSuppliesTransaction">
+              <MappingFragment StoreEntitySet="DetailSuppliesTransaction">
+                <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+                <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DetailWarehouses">
+            <EntityTypeMapping TypeName="CheeseModel.DetailWarehouse">
+              <MappingFragment StoreEntitySet="DetailWarehouse">
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="CheeseModel.Employee">
+              <MappingFragment StoreEntitySet="Employee">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+                <ScalarProperty Name="EmployeeGender" ColumnName="EmployeeGender" />
+                <ScalarProperty Name="Division" ColumnName="Division" />
+                <ScalarProperty Name="Salary" ColumnName="Salary" />
+                <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+                <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+                <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="RegisteredBy" ColumnName="RegisteredBy" />
+                <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FinalGoodsReceipts">
+            <EntityTypeMapping TypeName="CheeseModel.FinalGoodsReceipt">
+              <MappingFragment StoreEntitySet="FinalGoodsReceipt">
+                <ScalarProperty Name="FinalGoodsReceiptID" ColumnName="FinalGoodsReceiptID" />
+                <ScalarProperty Name="GoodsReceiptCheckID" ColumnName="GoodsReceiptCheckID" />
+                <ScalarProperty Name="FinalGoodsReceiptDate" ColumnName="FinalGoodsReceiptDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodsReceipts">
+            <EntityTypeMapping TypeName="CheeseModel.GoodsReceipt">
+              <MappingFragment StoreEntitySet="GoodsReceipt">
+                <ScalarProperty Name="GoodsReceiptID" ColumnName="GoodsReceiptID" />
+                <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+                <ScalarProperty Name="GoodsReceiptDate" ColumnName="GoodsReceiptDate" />
+                <ScalarProperty Name="GoodsReceiptDescription" ColumnName="GoodsReceiptDescription" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GoodsReceiptChecks">
+            <EntityTypeMapping TypeName="CheeseModel.GoodsReceiptCheck">
+              <MappingFragment StoreEntitySet="GoodsReceiptCheck">
+                <ScalarProperty Name="GoodsReceiptCheckID" ColumnName="GoodsReceiptCheckID" />
+                <ScalarProperty Name="GoodsReceiptID" ColumnName="GoodsReceiptID" />
+                <ScalarProperty Name="GoodsReceiptCheckDate" ColumnName="GoodsReceiptCheckDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Milk">
+            <EntityTypeMapping TypeName="CheeseModel.Milk">
+              <MappingFragment StoreEntitySet="Milk">
+                <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+                <ScalarProperty Name="MilkName" ColumnName="MilkName" />
+                <ScalarProperty Name="MilkInputDate" ColumnName="MilkInputDate" />
+                <ScalarProperty Name="InputBy" ColumnName="InputBy" />
+                <ScalarProperty Name="MilkLifeTime" ColumnName="MilkLifeTime" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OutgoingReports">
+            <EntityTypeMapping TypeName="CheeseModel.OutgoingReport">
+              <MappingFragment StoreEntitySet="OutgoingReport">
+                <ScalarProperty Name="OutgoingReportID" ColumnName="OutgoingReportID" />
+                <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="CheckStatus" ColumnName="CheckStatus" />
+                <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+                <ScalarProperty Name="PackedBy" ColumnName="PackedBy" />
+                <ScalarProperty Name="ShippedBy" ColumnName="ShippedBy" />
+                <ScalarProperty Name="OutgoingReportDescription" ColumnName="OutgoingReportDescription" />
+                <ScalarProperty Name="CheckedBy" ColumnName="CheckedBy" />
+                <ScalarProperty Name="CheckedDate" ColumnName="CheckedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesTransactions">
+            <EntityTypeMapping TypeName="CheeseModel.SalesTransaction">
+              <MappingFragment StoreEntitySet="SalesTransaction">
+                <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="SalesTransactionDate" ColumnName="SalesTransactionDate" />
+                <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+                <ScalarProperty Name="ShippingLocation" ColumnName="ShippingLocation" />
+                <ScalarProperty Name="Transportation" ColumnName="Transportation" />
+                <ScalarProperty Name="ShippingTime" ColumnName="ShippingTime" />
+                <ScalarProperty Name="NumberOfBatch" ColumnName="NumberOfBatch" />
+                <ScalarProperty Name="SalesTransactionStatus" ColumnName="SalesTransactionStatus" />
+                <ScalarProperty Name="InsertBy" ColumnName="InsertBy" />
+                <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+                <ScalarProperty Name="ConfirmBy" ColumnName="ConfirmBy" />
+                <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+                <ScalarProperty Name="TransportPrice" ColumnName="TransportPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Schedules">
+            <EntityTypeMapping TypeName="CheeseModel.Schedule">
+              <MappingFragment StoreEntitySet="Schedule">
+                <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+                <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+                <ScalarProperty Name="BatchNumberSchedule" ColumnName="BatchNumberSchedule" />
+                <ScalarProperty Name="PackingDate" ColumnName="PackingDate" />
+                <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+                <ScalarProperty Name="ScheduleStatus" ColumnName="ScheduleStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SuppliesTransactions">
+            <EntityTypeMapping TypeName="CheeseModel.SuppliesTransaction">
+              <MappingFragment StoreEntitySet="SuppliesTransaction">
+                <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+                <ScalarProperty Name="SuppliesTransactionDate" ColumnName="SuppliesTransactionDate" />
+                <ScalarProperty Name="SuppliesTransactionStatus" ColumnName="SuppliesTransactionStatus" />
+                <ScalarProperty Name="SuppliesTransactionDescription" ColumnName="SuppliesTransactionDescription" />
+                <ScalarProperty Name="RequestBy" ColumnName="RequestBy" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Vendors">
+            <EntityTypeMapping TypeName="CheeseModel.Vendor">
+              <MappingFragment StoreEntitySet="Vendor">
+                <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+                <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+                <ScalarProperty Name="VendorRegisterDate" ColumnName="VendorRegisterDate" />
+                <ScalarProperty Name="VendorRegisterBy" ColumnName="VendorRegisterBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VerifiedInvoices">
+            <EntityTypeMapping TypeName="CheeseModel.VerifiedInvoice">
+              <MappingFragment StoreEntitySet="VerifiedInvoice">
+                <ScalarProperty Name="VerifiedInvoiceID" ColumnName="VerifiedInvoiceID" />
+                <ScalarProperty Name="FinalGoodsReceiptID" ColumnName="FinalGoodsReceiptID" />
+                <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+                <ScalarProperty Name="VerifiedInvoiceDate" ColumnName="VerifiedInvoiceDate" />
+                <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+                <ScalarProperty Name="VerifiedInvoiceStatus" ColumnName="VerifiedInvoiceStatus" />
+                <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+                <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+                <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+                <ScalarProperty Name="PaidConfirmationDate" ColumnName="PaidConfirmationDate" />
+                <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Warehouses">
+            <EntityTypeMapping TypeName="CheeseModel.Warehouse">
+              <MappingFragment StoreEntitySet="Warehouse">
+                <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+                <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+                <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesInvoices">
+            <EntityTypeMapping TypeName="CheeseModel.SalesInvoice">
+              <MappingFragment StoreEntitySet="SalesInvoice">
+                <ScalarProperty Name="SalesInvoiceID" ColumnName="SalesInvoiceID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

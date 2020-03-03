@@ -1,0 +1,8 @@
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0001', N'Roquefort', N'2015-05-07 17:38:20', N'EMP0002', N'2017-07-07')
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0002', N'Camembert', N'2015-05-07 17:38:58', N'EMP0002', N'2018-01-26')
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0003', N'Mozzarella', N'2015-05-07 17:39:44', N'EMP0002', N'2017-08-06')
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0004', N'Emmental', N'2012-05-07 17:40:00', N'EMP0002', N'2019-01-02')
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0005', N'Cheddar', N'2015-05-07 17:41:49', N'EMP0002', N'2018-03-02')
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0006', N'Gouda', N'2015-05-07 17:42:55', N'EMP0002', N'2016-12-01')
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0007', N'Manchego', N'2015-05-07 17:45:29', N'EMP0002', N'2016-08-21')
+INSERT INTO [dbo].[Cheese] ([CheeseID], [CheeseName], [CheeseInputDate], [InputedBy], [CheeseLifeTime]) VALUES (N'CHS0008', N'Taleggio', N'2015-05-07 17:47:12', N'EMP0002', N'2017-02-28')

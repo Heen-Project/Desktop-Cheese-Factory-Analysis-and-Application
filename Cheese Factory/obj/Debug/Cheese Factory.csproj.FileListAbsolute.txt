@@ -1,0 +1,36 @@
+c:\users\wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\Cheese Factory.exe.config
+C:\Users\Wendy\Documents\Visual Studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\Cheese Factory.exe
+C:\Users\Wendy\Documents\Visual Studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\Cheese Factory.pdb
+C:\Users\Wendy\Documents\Visual Studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese Factory.csprojResolveAssemblyReference.cache
+C:\Users\Wendy\Documents\Visual Studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.Properties.Resources.resources
+C:\Users\Wendy\Documents\Visual Studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese Factory.csproj.GenerateResource.Cache
+C:\Users\Wendy\Documents\Visual Studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese Factory.exe
+C:\Users\Wendy\Documents\Visual Studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese Factory.pdb
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\EntityFramework.dll
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\EntityFramework.xml
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.HR_ManageEmployee.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.SD_ManageCustomer.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.SP_Vendor.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.SP_Cheese.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.SP_SuppliesTransaction.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.SP_Milk.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.IS_ViewPurchaseOrder.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.SD_SalesTransaction.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\Cheese.mdf
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\bin\Debug\Cheese_log.ldf
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.ReportForm_SuppliesTransaction.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory._BarcodeForm.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory._LoginForm.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory._MainForm.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.OP_ViewPackingSchedule.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.QM_CheckOutgoingProduct.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.OP_OutgoingReport.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.FC_SalesInvoice.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.QM_CheckIncomingSupplies.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.IS_FinalGoodsReceipt.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.IS_SuppliesInvoice.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.QM_DefectiveProduct.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.SP_VerifyInvoice.resources
+C:\Users\Wendy\documents\visual studio 2013\Projects\Cheese Factory\Cheese Factory\obj\Debug\Cheese_Factory.FC_SuppliesInvoice.resources

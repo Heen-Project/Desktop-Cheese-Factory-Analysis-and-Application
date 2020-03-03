@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CheeseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Cheese">
+    <Key>
+      <PropertyRef Name="CheeseID" />
+    </Key>
+    <Property Name="CheeseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CheeseName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CheeseInputDate" Type="DateTime" Precision="3" />
+    <Property Name="InputedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="CheeseLifeTime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerGender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerAddress" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerContactNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="CustomerEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RegisterDate" Type="DateTime" Precision="3" />
+    <Property Name="RegisterBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DefectiveProduct">
+    <Key>
+      <PropertyRef Name="DefectiveProduct1" />
+    </Key>
+    <Property Name="DefectiveProduct1" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailCustomer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Name="CustomerID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdatedDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="DetailEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+      <PropertyRef Name="LastUpdateDate" />
+    </Key>
+    <Property Name="EmployeeID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="LastUpdateDate" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="DetailFinalGoodsReceipt">
+    <Key>
+      <PropertyRef Name="FinalGoodsReceiptID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="FinalGoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DetailGoodsReceipt">
+    <Key>
+      <PropertyRef Name="GoodsReceiptID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="GoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DetailGoodsReceiptCheck">
+    <Key>
+      <PropertyRef Name="GoodsReceiptCheckID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="GoodsReceiptCheckID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DetailSalesTransaction">
+    <Key>
+      <PropertyRef Name="SalesTransactionID" />
+      <PropertyRef Name="CheeseID" />
+    </Key>
+    <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CheeseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="ItemPrice" Type="Int32" />
+    <Property Name="TotalPrice" Type="Int32" />
+  </EntityType>
+  <EntityType Name="DetailSuppliesTransaction">
+    <Key>
+      <PropertyRef Name="SuppliesTransactionID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="Int32" />
+    <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="DetailWarehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="WarehouseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="ProductID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Status" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="EmployeeName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeGender" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Division" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="Salary" Type="Int32" />
+    <Property Name="DateOfBirth" Type="DateTime" Precision="0" />
+    <Property Name="JoinDate" Type="DateTime" Precision="3" />
+    <Property Name="EmployeeEmail" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="RegisteredBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="EmployeeStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="FinalGoodsReceipt">
+    <Key>
+      <PropertyRef Name="FinalGoodsReceiptID" />
+    </Key>
+    <Property Name="FinalGoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GoodsReceiptCheckID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="FinalGoodsReceiptDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GoodsReceipt">
+    <Key>
+      <PropertyRef Name="GoodsReceiptID" />
+    </Key>
+    <Property Name="GoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="GoodsReceiptDate" Type="DateTime" Precision="3" />
+    <Property Name="GoodsReceiptDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="GoodsReceiptCheck">
+    <Key>
+      <PropertyRef Name="GoodsReceiptCheckID" />
+    </Key>
+    <Property Name="GoodsReceiptCheckID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="GoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="GoodsReceiptCheckDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Milk">
+    <Key>
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="MilkID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="MilkName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="MilkInputDate" Type="DateTime" Precision="3" />
+    <Property Name="InputBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="MilkLifeTime" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="OutgoingReport">
+    <Key>
+      <PropertyRef Name="OutgoingReportID" />
+    </Key>
+    <Property Name="OutgoingReportID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="ScheduleID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="CheckStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="DeliveryStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="PackedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="ShippedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="OutgoingReportDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="CheckedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="CheckedDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="SalesTransaction">
+    <Key>
+      <PropertyRef Name="SalesTransactionID" />
+    </Key>
+    <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="CustomerID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="SalesTransactionDate" Type="DateTime" Precision="3" />
+    <Property Name="PaymentType" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ShippingLocation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Transportation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ShippingTime" Type="DateTime" Precision="3" />
+    <Property Name="NumberOfBatch" Type="Int32" />
+    <Property Name="SalesTransactionStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="InsertBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="InsertDate" Type="DateTime" Precision="3" />
+    <Property Name="ConfirmBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="ConfirmDate" Type="DateTime" Precision="3" />
+    <Property Name="TransportPrice" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+      <PropertyRef Name="SalesTransactionID" />
+    </Key>
+    <Property Name="ScheduleID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SalesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="BatchNumberSchedule" Type="Int32" />
+    <Property Name="PackingDate" Type="DateTime" Precision="0" />
+    <Property Name="ShippingDate" Type="DateTime" Precision="0" />
+    <Property Name="ScheduleStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="SuppliesTransaction">
+    <Key>
+      <PropertyRef Name="SuppliesTransactionID" />
+    </Key>
+    <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="SuppliesTransactionDate" Type="DateTime" Precision="3" />
+    <Property Name="SuppliesTransactionStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="SuppliesTransactionDescription" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="RequestBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="VendorName" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="VendorRegisterDate" Type="DateTime" Precision="3" />
+    <Property Name="VendorRegisterBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="VerifiedInvoice">
+    <Key>
+      <PropertyRef Name="VerifiedInvoiceID" />
+    </Key>
+    <Property Name="VerifiedInvoiceID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="FinalGoodsReceiptID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="SuppliesTransactionID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="VerifiedInvoiceDate" Type="DateTime" Precision="3" />
+    <Property Name="CreatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="VerifiedInvoiceStatus" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+    <Property Name="ApprovedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="ApprovedDate" Type="DateTime" Precision="3" />
+    <Property Name="PaidBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+    <Property Name="PaidConfirmationDate" Type="DateTime" Precision="3" />
+    <Property Name="TotalPrice" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Name="WarehouseID" Type="String" MaxLength="7" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityContainer Name="CheeseEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cheese" EntityType="Self.Cheese" />
+    <EntitySet Name="Customers" EntityType="Self.Customer" />
+    <EntitySet Name="DefectiveProducts" EntityType="Self.DefectiveProduct" />
+    <EntitySet Name="DetailCustomers" EntityType="Self.DetailCustomer" />
+    <EntitySet Name="DetailEmployees" EntityType="Self.DetailEmployee" />
+    <EntitySet Name="DetailFinalGoodsReceipts" EntityType="Self.DetailFinalGoodsReceipt" />
+    <EntitySet Name="DetailGoodsReceipts" EntityType="Self.DetailGoodsReceipt" />
+    <EntitySet Name="DetailGoodsReceiptChecks" EntityType="Self.DetailGoodsReceiptCheck" />
+    <EntitySet Name="DetailSalesTransactions" EntityType="Self.DetailSalesTransaction" />
+    <EntitySet Name="DetailSuppliesTransactions" EntityType="Self.DetailSuppliesTransaction" />
+    <EntitySet Name="DetailWarehouses" EntityType="Self.DetailWarehouse" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="FinalGoodsReceipts" EntityType="Self.FinalGoodsReceipt" />
+    <EntitySet Name="GoodsReceipts" EntityType="Self.GoodsReceipt" />
+    <EntitySet Name="GoodsReceiptChecks" EntityType="Self.GoodsReceiptCheck" />
+    <EntitySet Name="Milk" EntityType="Self.Milk" />
+    <EntitySet Name="OutgoingReports" EntityType="Self.OutgoingReport" />
+    <EntitySet Name="SalesTransactions" EntityType="Self.SalesTransaction" />
+    <EntitySet Name="Schedules" EntityType="Self.Schedule" />
+    <EntitySet Name="SuppliesTransactions" EntityType="Self.SuppliesTransaction" />
+    <EntitySet Name="Vendors" EntityType="Self.Vendor" />
+    <EntitySet Name="VerifiedInvoices" EntityType="Self.VerifiedInvoice" />
+    <EntitySet Name="Warehouses" EntityType="Self.Warehouse" />
+    <EntitySet Name="SalesInvoices" EntityType="CheeseModel.SalesInvoice" />
+  </EntityContainer>
+  <EntityType Name="SalesInvoice">
+    <Key>
+      <PropertyRef Name="SalesInvoiceID" />
+    </Key>
+    <Property Name="SalesInvoiceID" Type="String" Nullable="false" MaxLength="7" FixedLength="false" Unicode="false" />
+  </EntityType>
+</Schema>

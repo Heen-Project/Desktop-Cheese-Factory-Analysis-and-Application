@@ -1,0 +1,5 @@
+INSERT INTO [dbo].[DetailCustomer] ([CustomerID], [LastUpdatedBy], [LastUpdatedDate]) VALUES (N'CST0001', N'EMP0003', N'2015-05-10 07:29:31')
+INSERT INTO [dbo].[DetailCustomer] ([CustomerID], [LastUpdatedBy], [LastUpdatedDate]) VALUES (N'CST0002', N'EMP0003', N'2015-05-10 07:39:37')
+INSERT INTO [dbo].[DetailCustomer] ([CustomerID], [LastUpdatedBy], [LastUpdatedDate]) VALUES (N'CST0003', N'EMP0003', N'2015-05-10 07:43:01')
+INSERT INTO [dbo].[DetailCustomer] ([CustomerID], [LastUpdatedBy], [LastUpdatedDate]) VALUES (N'CST0004', N'EMP0003', N'2015-05-10 07:43:37')
+INSERT INTO [dbo].[DetailCustomer] ([CustomerID], [LastUpdatedBy], [LastUpdatedDate]) VALUES (N'CST0005', N'EMP0003', N'2015-05-10 07:44:31')

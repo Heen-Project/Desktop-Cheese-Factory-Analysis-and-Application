@@ -1,0 +1,282 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="CheeseModelStoreContainer" CdmEntityContainer="CheeseEntities">
+    <EntitySetMapping Name="Cheese">
+      <EntityTypeMapping TypeName="CheeseModel.Cheese">
+        <MappingFragment StoreEntitySet="Cheese">
+          <ScalarProperty Name="CheeseID" ColumnName="CheeseID" />
+          <ScalarProperty Name="CheeseName" ColumnName="CheeseName" />
+          <ScalarProperty Name="CheeseInputDate" ColumnName="CheeseInputDate" />
+          <ScalarProperty Name="InputedBy" ColumnName="InputedBy" />
+          <ScalarProperty Name="CheeseLifeTime" ColumnName="CheeseLifeTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Customers">
+      <EntityTypeMapping TypeName="CheeseModel.Customer">
+        <MappingFragment StoreEntitySet="Customer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+          <ScalarProperty Name="CustomerGender" ColumnName="CustomerGender" />
+          <ScalarProperty Name="CustomerAddress" ColumnName="CustomerAddress" />
+          <ScalarProperty Name="CustomerContactNumber" ColumnName="CustomerContactNumber" />
+          <ScalarProperty Name="CustomerEmail" ColumnName="CustomerEmail" />
+          <ScalarProperty Name="RegisterDate" ColumnName="RegisterDate" />
+          <ScalarProperty Name="RegisterBy" ColumnName="RegisterBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DefectiveProducts">
+      <EntityTypeMapping TypeName="CheeseModel.DefectiveProduct">
+        <MappingFragment StoreEntitySet="DefectiveProduct">
+          <ScalarProperty Name="DefectiveProduct1" ColumnName="DefectiveProduct" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailCustomers">
+      <EntityTypeMapping TypeName="CheeseModel.DetailCustomer">
+        <MappingFragment StoreEntitySet="DetailCustomer">
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdatedDate" ColumnName="LastUpdatedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailEmployees">
+      <EntityTypeMapping TypeName="CheeseModel.DetailEmployee">
+        <MappingFragment StoreEntitySet="DetailEmployee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="LastUpdatedBy" ColumnName="LastUpdatedBy" />
+          <ScalarProperty Name="LastUpdateDate" ColumnName="LastUpdateDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailFinalGoodsReceipts">
+      <EntityTypeMapping TypeName="CheeseModel.DetailFinalGoodsReceipt">
+        <MappingFragment StoreEntitySet="DetailFinalGoodsReceipt">
+          <ScalarProperty Name="FinalGoodsReceiptID" ColumnName="FinalGoodsReceiptID" />
+          <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailGoodsReceipts">
+      <EntityTypeMapping TypeName="CheeseModel.DetailGoodsReceipt">
+        <MappingFragment StoreEntitySet="DetailGoodsReceipt">
+          <ScalarProperty Name="GoodsReceiptID" ColumnName="GoodsReceiptID" />
+          <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailGoodsReceiptChecks">
+      <EntityTypeMapping TypeName="CheeseModel.DetailGoodsReceiptCheck">
+        <MappingFragment StoreEntitySet="DetailGoodsReceiptCheck">
+          <ScalarProperty Name="GoodsReceiptCheckID" ColumnName="GoodsReceiptCheckID" />
+          <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailSalesTransactions">
+      <EntityTypeMapping TypeName="CheeseModel.DetailSalesTransaction">
+        <MappingFragment StoreEntitySet="DetailSalesTransaction">
+          <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+          <ScalarProperty Name="CheeseID" ColumnName="CheeseID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="ItemPrice" ColumnName="ItemPrice" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailSuppliesTransactions">
+      <EntityTypeMapping TypeName="CheeseModel.DetailSuppliesTransaction">
+        <MappingFragment StoreEntitySet="DetailSuppliesTransaction">
+          <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+          <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DetailWarehouses">
+      <EntityTypeMapping TypeName="CheeseModel.DetailWarehouse">
+        <MappingFragment StoreEntitySet="DetailWarehouse">
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+          <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="CheeseModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+          <ScalarProperty Name="EmployeeName" ColumnName="EmployeeName" />
+          <ScalarProperty Name="EmployeeGender" ColumnName="EmployeeGender" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+          <ScalarProperty Name="Salary" ColumnName="Salary" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="JoinDate" ColumnName="JoinDate" />
+          <ScalarProperty Name="EmployeeEmail" ColumnName="EmployeeEmail" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="RegisteredBy" ColumnName="RegisteredBy" />
+          <ScalarProperty Name="EmployeeStatus" ColumnName="EmployeeStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FinalGoodsReceipts">
+      <EntityTypeMapping TypeName="CheeseModel.FinalGoodsReceipt">
+        <MappingFragment StoreEntitySet="FinalGoodsReceipt">
+          <ScalarProperty Name="FinalGoodsReceiptID" ColumnName="FinalGoodsReceiptID" />
+          <ScalarProperty Name="GoodsReceiptCheckID" ColumnName="GoodsReceiptCheckID" />
+          <ScalarProperty Name="FinalGoodsReceiptDate" ColumnName="FinalGoodsReceiptDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodsReceipts">
+      <EntityTypeMapping TypeName="CheeseModel.GoodsReceipt">
+        <MappingFragment StoreEntitySet="GoodsReceipt">
+          <ScalarProperty Name="GoodsReceiptID" ColumnName="GoodsReceiptID" />
+          <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+          <ScalarProperty Name="GoodsReceiptDate" ColumnName="GoodsReceiptDate" />
+          <ScalarProperty Name="GoodsReceiptDescription" ColumnName="GoodsReceiptDescription" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="GoodsReceiptChecks">
+      <EntityTypeMapping TypeName="CheeseModel.GoodsReceiptCheck">
+        <MappingFragment StoreEntitySet="GoodsReceiptCheck">
+          <ScalarProperty Name="GoodsReceiptCheckID" ColumnName="GoodsReceiptCheckID" />
+          <ScalarProperty Name="GoodsReceiptID" ColumnName="GoodsReceiptID" />
+          <ScalarProperty Name="GoodsReceiptCheckDate" ColumnName="GoodsReceiptCheckDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Milk">
+      <EntityTypeMapping TypeName="CheeseModel.Milk">
+        <MappingFragment StoreEntitySet="Milk">
+          <ScalarProperty Name="MilkID" ColumnName="MilkID" />
+          <ScalarProperty Name="MilkName" ColumnName="MilkName" />
+          <ScalarProperty Name="MilkInputDate" ColumnName="MilkInputDate" />
+          <ScalarProperty Name="InputBy" ColumnName="InputBy" />
+          <ScalarProperty Name="MilkLifeTime" ColumnName="MilkLifeTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="OutgoingReports">
+      <EntityTypeMapping TypeName="CheeseModel.OutgoingReport">
+        <MappingFragment StoreEntitySet="OutgoingReport">
+          <ScalarProperty Name="OutgoingReportID" ColumnName="OutgoingReportID" />
+          <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="CheckStatus" ColumnName="CheckStatus" />
+          <ScalarProperty Name="DeliveryStatus" ColumnName="DeliveryStatus" />
+          <ScalarProperty Name="PackedBy" ColumnName="PackedBy" />
+          <ScalarProperty Name="ShippedBy" ColumnName="ShippedBy" />
+          <ScalarProperty Name="OutgoingReportDescription" ColumnName="OutgoingReportDescription" />
+          <ScalarProperty Name="CheckedBy" ColumnName="CheckedBy" />
+          <ScalarProperty Name="CheckedDate" ColumnName="CheckedDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesTransactions">
+      <EntityTypeMapping TypeName="CheeseModel.SalesTransaction">
+        <MappingFragment StoreEntitySet="SalesTransaction">
+          <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+          <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+          <ScalarProperty Name="SalesTransactionDate" ColumnName="SalesTransactionDate" />
+          <ScalarProperty Name="PaymentType" ColumnName="PaymentType" />
+          <ScalarProperty Name="ShippingLocation" ColumnName="ShippingLocation" />
+          <ScalarProperty Name="Transportation" ColumnName="Transportation" />
+          <ScalarProperty Name="ShippingTime" ColumnName="ShippingTime" />
+          <ScalarProperty Name="NumberOfBatch" ColumnName="NumberOfBatch" />
+          <ScalarProperty Name="SalesTransactionStatus" ColumnName="SalesTransactionStatus" />
+          <ScalarProperty Name="InsertBy" ColumnName="InsertBy" />
+          <ScalarProperty Name="InsertDate" ColumnName="InsertDate" />
+          <ScalarProperty Name="ConfirmBy" ColumnName="ConfirmBy" />
+          <ScalarProperty Name="ConfirmDate" ColumnName="ConfirmDate" />
+          <ScalarProperty Name="TransportPrice" ColumnName="TransportPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Schedules">
+      <EntityTypeMapping TypeName="CheeseModel.Schedule">
+        <MappingFragment StoreEntitySet="Schedule">
+          <ScalarProperty Name="ScheduleID" ColumnName="ScheduleID" />
+          <ScalarProperty Name="SalesTransactionID" ColumnName="SalesTransactionID" />
+          <ScalarProperty Name="BatchNumberSchedule" ColumnName="BatchNumberSchedule" />
+          <ScalarProperty Name="PackingDate" ColumnName="PackingDate" />
+          <ScalarProperty Name="ShippingDate" ColumnName="ShippingDate" />
+          <ScalarProperty Name="ScheduleStatus" ColumnName="ScheduleStatus" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SuppliesTransactions">
+      <EntityTypeMapping TypeName="CheeseModel.SuppliesTransaction">
+        <MappingFragment StoreEntitySet="SuppliesTransaction">
+          <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+          <ScalarProperty Name="SuppliesTransactionDate" ColumnName="SuppliesTransactionDate" />
+          <ScalarProperty Name="SuppliesTransactionStatus" ColumnName="SuppliesTransactionStatus" />
+          <ScalarProperty Name="SuppliesTransactionDescription" ColumnName="SuppliesTransactionDescription" />
+          <ScalarProperty Name="RequestBy" ColumnName="RequestBy" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Vendors">
+      <EntityTypeMapping TypeName="CheeseModel.Vendor">
+        <MappingFragment StoreEntitySet="Vendor">
+          <ScalarProperty Name="VendorID" ColumnName="VendorID" />
+          <ScalarProperty Name="VendorName" ColumnName="VendorName" />
+          <ScalarProperty Name="VendorRegisterDate" ColumnName="VendorRegisterDate" />
+          <ScalarProperty Name="VendorRegisterBy" ColumnName="VendorRegisterBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="VerifiedInvoices">
+      <EntityTypeMapping TypeName="CheeseModel.VerifiedInvoice">
+        <MappingFragment StoreEntitySet="VerifiedInvoice">
+          <ScalarProperty Name="VerifiedInvoiceID" ColumnName="VerifiedInvoiceID" />
+          <ScalarProperty Name="FinalGoodsReceiptID" ColumnName="FinalGoodsReceiptID" />
+          <ScalarProperty Name="SuppliesTransactionID" ColumnName="SuppliesTransactionID" />
+          <ScalarProperty Name="VerifiedInvoiceDate" ColumnName="VerifiedInvoiceDate" />
+          <ScalarProperty Name="CreatedBy" ColumnName="CreatedBy" />
+          <ScalarProperty Name="VerifiedInvoiceStatus" ColumnName="VerifiedInvoiceStatus" />
+          <ScalarProperty Name="ApprovedBy" ColumnName="ApprovedBy" />
+          <ScalarProperty Name="ApprovedDate" ColumnName="ApprovedDate" />
+          <ScalarProperty Name="PaidBy" ColumnName="PaidBy" />
+          <ScalarProperty Name="PaidConfirmationDate" ColumnName="PaidConfirmationDate" />
+          <ScalarProperty Name="TotalPrice" ColumnName="TotalPrice" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Warehouses">
+      <EntityTypeMapping TypeName="CheeseModel.Warehouse">
+        <MappingFragment StoreEntitySet="Warehouse">
+          <ScalarProperty Name="WarehouseID" ColumnName="WarehouseID" />
+          <ScalarProperty Name="UpdatedDate" ColumnName="UpdatedDate" />
+          <ScalarProperty Name="UpdatedBy" ColumnName="UpdatedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="SalesInvoices">
+      <EntityTypeMapping TypeName="CheeseModel.SalesInvoice">
+        <MappingFragment StoreEntitySet="SalesInvoice">
+          <ScalarProperty Name="SalesInvoiceID" ColumnName="SalesInvoiceID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

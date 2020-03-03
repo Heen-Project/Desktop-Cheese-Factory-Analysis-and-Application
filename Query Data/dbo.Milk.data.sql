@@ -1,0 +1,7 @@
+INSERT INTO [dbo].[Milk] ([MilkID], [MilkName], [MilkInputDate], [InputBy], [MilkLifeTime]) VALUES (N'MLK0001', N'Fat-Free Milk', N'2015-05-07 17:48:55', N'EMP0002', N'2017-08-02')
+INSERT INTO [dbo].[Milk] ([MilkID], [MilkName], [MilkInputDate], [InputBy], [MilkLifeTime]) VALUES (N'MLK0002', N'Organic Milk', N'2015-05-07 17:49:50', N'EMP0002', N'2017-02-06')
+INSERT INTO [dbo].[Milk] ([MilkID], [MilkName], [MilkInputDate], [InputBy], [MilkLifeTime]) VALUES (N'MLK0003', N'Lactose- Free Milk', N'2015-05-07 17:50:21', N'EMP0002', N'2018-01-03')
+INSERT INTO [dbo].[Milk] ([MilkID], [MilkName], [MilkInputDate], [InputBy], [MilkLifeTime]) VALUES (N'MLK0004', N'Skimmed Milk', N'2015-05-07 17:50:57', N'EMP0002', N'2016-03-07')
+INSERT INTO [dbo].[Milk] ([MilkID], [MilkName], [MilkInputDate], [InputBy], [MilkLifeTime]) VALUES (N'MLK0005', N'Flavoured Milk', N'2015-05-07 17:51:46', N'EMP0002', N'2019-01-01')
+INSERT INTO [dbo].[Milk] ([MilkID], [MilkName], [MilkInputDate], [InputBy], [MilkLifeTime]) VALUES (N'MLK0006', N'Evaporated Milk', N'2015-05-07 17:52:19', N'EMP0002', N'2016-12-09')
+INSERT INTO [dbo].[Milk] ([MilkID], [MilkName], [MilkInputDate], [InputBy], [MilkLifeTime]) VALUES (N'MLK0007', N'Condensed Milk', N'2015-05-07 17:52:55', N'EMP0002', N'2018-05-07')

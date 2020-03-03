@@ -1,0 +1,404 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+using IDAutomation.NetAssembly;
+
+namespace Cheese_Factory
+{
+    public partial class HR_ManageEmployee : Form
+    {
+        CheeseEntities cheese = new CheeseEntities();
+        List<String> Division = new List<String>();
+        List<String> EStatus = new List<String>();
+        int flag = 0;
+
+        public HR_ManageEmployee()
+        {
+            InitializeComponent();
+
+            refreshData();
+            EnabledStatus(false);
+            ButtonStatus(true);
+            insertComboBox();
+        }
+
+        private void refreshData(){
+            var Employee = from temp in cheese.Employees 
+            select new {temp.EmployeeID, temp.EmployeeName, temp.EmployeeGender, temp.Division, temp.Salary, temp.DateOfBirth, temp.EmployeeEmail, temp.PhoneNumber, temp.EmployeeStatus};
+            dataGridView1.DataSource = Employee.ToList();
+            if (Employee != null)
+            {
+                dataGridView1.Enabled = true;
+            }
+            else
+            {
+                dataGridView1.Enabled = false;
+            }
+        }
+
+        private void EnabledStatus (bool status){
+            textBox1.Enabled = false;
+            textBox2.Enabled = status;
+            textBox7.Enabled = status;
+            textBox8.Enabled = status;
+            radioButton1.Enabled = status;
+            radioButton2.Enabled = status;
+            numericUpDown1.Enabled = status;
+            dateTimePicker1.Enabled = status;
+            comboBox1.Enabled = status;
+            comboBox2.Enabled = status;
+        }
+
+        private void ButtonStatus(bool status)
+        {
+            button1.Enabled = status;
+            button2.Enabled = status;
+            button3.Enabled = status;
+            button4.Enabled = !status;
+            button5.Enabled = !status;
+            button6.Enabled = !status;
+        }
+
+        private void clear()
+        {
+            /*foreach (Control item in this.Controls)
+            {
+                if (item.GetType() == typeof(TextBox))
+                    ((TextBox)item).Text = "";
+                else if (item.GetType() == typeof(RadioButton))
+                    ((RadioButton)item).Checked = false;
+                else if (item.GetType() == typeof(ComboBox))
+                    ((ComboBox)item).SelectedIndex = 0;
+                else if (item.GetType() == typeof(CheckBox))
+                    ((CheckBox)item).Checked = false;
+                else if (item.GetType() == typeof(NumericUpDown))
+                    ((NumericUpDown)item).Value = 0;
+                //else if(item.GetType()==typeof(DateTimePicker))
+                //  ((DateTimePicker)item).
+            }*/
+            dateTimePicker1.Value = DateTime.Today;
+            textBox2.Text = "";
+            textBox7.Text = "";
+            textBox8.Text = "";
+            comboBox1.SelectedIndex = 0;
+            comboBox2.SelectedIndex = 0;
+            radioButton1.Checked = false;
+            radioButton2.Checked = false;
+            numericUpDown1.Value = 0;
+            label10.Visible = false;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            clear();
+            EnabledStatus(true);
+            ButtonStatus(false);
+            flag = 1;
+            textBox1.Text = generateEmployeeID();
+            label9.Visible = false;
+            comboBox1.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            EnabledStatus(true);
+            ButtonStatus(false);
+            flag = 2;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            if (textBox1.Text != "")
+            {
+                DialogResult dr = MessageBox.Show("Delete " + textBox1.Text, "Confirm", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+                if (dr == System.Windows.Forms.DialogResult.OK)
+                {
+                    Employee deleteE = (from x in cheese.Employees
+                                   where x.EmployeeID.Equals(textBox1.Text)
+                                   select x).First();
+                    DetailEmployee deleteDE = (from x in cheese.DetailEmployees
+                                               where x.EmployeeID.Equals(textBox1.Text)
+                                               select x).First();
+                    cheese.Employees.Remove(deleteE);
+                    cheese.DetailEmployees.Remove(deleteDE);
+                    cheese.SaveChanges();
+                    refreshData();
+                }
+            }
+
+            flag = 3;
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            clear();
+            if (flag != 1) { 
+            label9.Visible = true;
+            comboBox1.Visible = true;
+            }
+            label10.Visible = false;
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            clear();
+            textBox1.Text = "";
+            EnabledStatus(false);
+            ButtonStatus(true);
+            label9.Visible = true;
+            comboBox1.Visible = true;
+            label10.Visible = false;
+            flag = 0;
+        }
+        
+        private void insertComboBox()
+        {
+            EStatus.Add("Active");
+            EStatus.Add("Inactive");
+            Division.Add("--- Select Division ---");
+            Division.Add("Incoming Supplies");
+            Division.Add("Outgoing Product");
+            Division.Add("Quality Management");
+            Division.Add("Sales and Distribution");
+            Division.Add("Supplies");
+            Division.Add("Finance");
+            Division.Add("Human Resource");
+            comboBox2.DataSource = Division;
+            comboBox1.DataSource = EStatus;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+           if (flag==1){
+               insertData();
+           }
+           else if (flag==2){
+               updateData();
+           }
+          
+        }
+
+        private void updateData()
+        {
+            if (textBox1.Text != "") { 
+            Employee e = (from x in cheese.Employees where x.EmployeeID.Equals(textBox1.Text) select x).First();
+            if (e != null) { 
+                e.EmployeeName = textBox2.Text;
+                if (radioButton1.Checked)
+                {
+                    e.EmployeeGender = "Male";
+                }
+                else if (radioButton2.Checked)
+                {
+                    e.EmployeeGender = "Female";
+                }
+                e.Division = comboBox2.SelectedValue.ToString();
+                e.Salary = (Int32)numericUpDown1.Value;
+                e.DateOfBirth = dateTimePicker1.Value;
+                e.EmployeeEmail = textBox7.Text;
+                e.PhoneNumber = textBox8.Text;
+                e.RegisteredBy = MainForm.userID;
+                e.EmployeeStatus = "Active";
+                DetailEmployee dE = new DetailEmployee();
+                dE.EmployeeID = textBox1.Text;
+                dE.LastUpdatedBy = MainForm.userID;
+                MessageBox.Show(e.EmployeeName);
+                cheese.DetailEmployees.Add(dE);
+                cheese.SaveChanges();
+                refreshData();
+                clear();
+                EnabledStatus(false);
+                ButtonStatus(true);
+                label9.Visible = true;
+                comboBox1.Visible = true;
+                label10.Visible = false;
+                flag = 0;
+            }
+            }
+        }
+
+        private void insertData()
+        {
+            if (textBox2.Text == "")
+            {
+                label10.Visible = true;
+                label10.Text = "Name Must Be Filled";
+            }
+            else if (radioButton1.Checked == false && radioButton2.Checked == false)
+            {
+                label10.Visible = true;
+                label10.Text = "Gender Must be Choose";
+            }
+            else if (comboBox2.SelectedIndex < 1)
+            {
+                label10.Visible = true;
+                label10.Text = "Choose Division";
+            }
+            else if (numericUpDown1.Value < 1)
+            {
+                label10.Visible = true;
+                label10.Text = "Please Input new Salary";
+            }
+            else if (textBox7.Text == "")
+            {
+                label10.Visible = true;
+                label10.Text = "Email Can Not Be Empty";
+            }
+            else if (textBox8.Text == "")
+            {
+                label10.Visible = true;
+                label10.Text = "Phone Number Cant be Empty";
+            }
+            else
+            {
+                FontEncoder font = new FontEncoder();
+                Employee e = new Employee();
+                DetailEmployee dE = new DetailEmployee();
+                e.EmployeeID = textBox1.Text;
+                String code = font.Code128(textBox1.Text, 0, false);
+                e.QRCode = code;
+                e.EmployeeName = textBox2.Text;
+                if (radioButton1.Checked)
+                {
+                    e.EmployeeGender = "Male";
+                }
+                else if (radioButton2.Checked)
+                {
+                    e.EmployeeGender = "Female";
+                }
+                e.Division = comboBox2.SelectedValue.ToString();
+                e.Salary = (Int32)numericUpDown1.Value;
+                e.DateOfBirth = dateTimePicker1.Value;
+                e.EmployeeEmail = textBox7.Text;
+                e.PhoneNumber = textBox8.Text;
+                e.RegisteredBy = MainForm.userID;
+                e.EmployeeStatus = "Active";
+                dE.EmployeeID = textBox1.Text;
+                dE.LastUpdatedBy = MainForm.userID;
+
+                cheese.Employees.Add(e);
+                cheese.DetailEmployees.Add(dE);
+ 
+                Barcode barcodenew = new Barcode(textBox1.Text);
+                barcodenew.Visible = true;
+                cheese.SaveChanges();
+                refreshData();
+                clear();
+                EnabledStatus(false);
+                ButtonStatus(true);
+                label9.Visible = true;
+                comboBox1.Visible = true;
+                label10.Visible = false;
+                flag = 0;
+            }
+        }
+        
+        public string generateEmployeeID()
+        {
+            string newID = "";
+            var employee = from temp in cheese.Employees select temp;
+            var countOfRows = employee.Count();
+            
+            if (countOfRows!=0)
+            {
+            var data = employee.ToList();
+            var lastRow = data.ElementAt(countOfRows - 1);
+            string curr = lastRow.EmployeeID;
+            string prefix = curr.Substring(0, 3);
+            string num = curr.Substring(3, 4);
+            int id = Int32.Parse(num);
+            id++;
+            if (id < 10000)
+            {
+                newID = prefix + "000" + id;
+
+            }
+            else if (id < 1000)
+            {
+                newID = prefix + "00" + id;
+
+            }
+            else if (id < 100)
+            {
+                newID = prefix + "0" + id;
+            }
+            else if (id < 10)
+            {
+                newID = prefix + id;
+            }
+            return newID;
+               }
+            else 
+            {
+                return "EMP0001";
+            }
+        }
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (flag != 1)
+            {
+                if (e.RowIndex >= 0)
+                {
+                    textBox1.Text = dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString();
+                    textBox2.Text = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                    if (dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() == "Male")
+                    {
+                        radioButton1.Checked = true;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString() == "Female")
+                    {
+                        radioButton2.Checked = true;
+                    }
+                    if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Incoming Supplies")
+                    {
+                        comboBox2.SelectedIndex = 1;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Outgoing Product")
+                    {
+                        comboBox2.SelectedIndex = 2;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Quality Management")
+                    {
+                        comboBox2.SelectedIndex = 3;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Sales and Distribution")
+                    {
+                        comboBox2.SelectedIndex = 4;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Supplies")
+                    {
+                        comboBox2.SelectedIndex = 5;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Finance")
+                    {
+                        comboBox2.SelectedIndex = 6;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString() == "Human Resource")
+                    {
+                        comboBox2.SelectedIndex = 7;
+                    }
+                    numericUpDown1.Value = Int32.Parse(dataGridView1.Rows[e.RowIndex].Cells[4].Value.ToString());
+                    dateTimePicker1.Value = DateTime.Parse(dataGridView1.Rows[e.RowIndex].Cells[5].Value.ToString());
+                    textBox7.Text = dataGridView1.Rows[e.RowIndex].Cells[6].Value.ToString();
+                    textBox8.Text = dataGridView1.Rows[e.RowIndex].Cells[7].Value.ToString();
+                    if (dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString() == "Active")
+                    {
+                        comboBox1.SelectedIndex = 0;
+                    }
+                    else if (dataGridView1.Rows[e.RowIndex].Cells[8].Value.ToString() == "Inactive")
+                    {
+                        comboBox1.SelectedIndex = 1;
+                    }
+                }
+            }
+        }
+    }
+}

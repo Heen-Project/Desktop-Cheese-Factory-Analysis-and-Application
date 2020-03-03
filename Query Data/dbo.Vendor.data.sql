@@ -1,0 +1,5 @@
+INSERT INTO [dbo].[Vendor] ([VendorID], [VendorName], [VendorRegisterDate], [VendorRegisterBy]) VALUES (N'VDR0001', N'Hypermart', N'2015-05-07 17:54:01', N'EMP0002')
+INSERT INTO [dbo].[Vendor] ([VendorID], [VendorName], [VendorRegisterDate], [VendorRegisterBy]) VALUES (N'VDR0002', N'Alfamart', N'2015-05-07 17:55:08', N'EMP0002')
+INSERT INTO [dbo].[Vendor] ([VendorID], [VendorName], [VendorRegisterDate], [VendorRegisterBy]) VALUES (N'VDR0003', N'Indomart', N'2015-05-07 17:55:21', N'EMP0002')
+INSERT INTO [dbo].[Vendor] ([VendorID], [VendorName], [VendorRegisterDate], [VendorRegisterBy]) VALUES (N'VDR0004', N'Carrefour', N'2015-05-07 17:55:44', N'EMP0002')
+INSERT INTO [dbo].[Vendor] ([VendorID], [VendorName], [VendorRegisterDate], [VendorRegisterBy]) VALUES (N'VDR0005', N'Giant', N'2015-05-07 17:55:57', N'EMP0002')

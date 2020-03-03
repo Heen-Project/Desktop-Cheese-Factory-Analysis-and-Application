@@ -1,0 +1,6 @@
+INSERT INTO [dbo].[DetailEmployee] ([EmployeeID], [LastUpdatedBy], [LastUpdateDate]) VALUES (N'EMP0002', N'', N'2015-05-10 07:36:57')
+INSERT INTO [dbo].[DetailEmployee] ([EmployeeID], [LastUpdatedBy], [LastUpdateDate]) VALUES (N'EMP0003', N'EMP0001', N'2015-05-10 07:32:07')
+INSERT INTO [dbo].[DetailEmployee] ([EmployeeID], [LastUpdatedBy], [LastUpdateDate]) VALUES (N'EMP0004', N'EMP0001', N'2015-05-10 07:33:07')
+INSERT INTO [dbo].[DetailEmployee] ([EmployeeID], [LastUpdatedBy], [LastUpdateDate]) VALUES (N'EMP0005', N'EMP0001', N'2015-05-10 07:34:36')
+INSERT INTO [dbo].[DetailEmployee] ([EmployeeID], [LastUpdatedBy], [LastUpdateDate]) VALUES (N'EMP0006', N'EMP0001', N'2015-05-10 07:35:29')
+INSERT INTO [dbo].[DetailEmployee] ([EmployeeID], [LastUpdatedBy], [LastUpdateDate]) VALUES (N'EMP0007', N'EMP0001', N'2015-05-10 07:36:45')

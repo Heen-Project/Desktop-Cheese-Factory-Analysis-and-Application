@@ -1,0 +1,291 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="CheeseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Cheese">
+    <Key>
+      <PropertyRef Name="CheeseID" />
+    </Key>
+    <Property Name="CheeseID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="CheeseName" Type="varchar" MaxLength="25" />
+    <Property Name="CheeseInputDate" Type="datetime" />
+    <Property Name="InputedBy" Type="varchar" MaxLength="7" />
+    <Property Name="CheeseLifeTime" Type="date" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+    </Key>
+    <Property Name="CustomerID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="CustomerName" Type="varchar" MaxLength="25" />
+    <Property Name="CustomerGender" Type="varchar" MaxLength="10" />
+    <Property Name="CustomerAddress" Type="varchar" MaxLength="100" />
+    <Property Name="CustomerContactNumber" Type="varchar" MaxLength="25" />
+    <Property Name="CustomerEmail" Type="varchar" MaxLength="50" />
+    <Property Name="RegisterDate" Type="datetime" />
+    <Property Name="RegisterBy" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="DefectiveProduct">
+    <Key>
+      <PropertyRef Name="DefectiveProduct" />
+    </Key>
+    <Property Name="DefectiveProduct" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailCustomer">
+    <Key>
+      <PropertyRef Name="CustomerID" />
+      <PropertyRef Name="LastUpdatedDate" />
+    </Key>
+    <Property Name="CustomerID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="varchar" MaxLength="7" />
+    <Property Name="LastUpdatedDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailEmployee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+      <PropertyRef Name="LastUpdateDate" />
+    </Key>
+    <Property Name="EmployeeID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="LastUpdatedBy" Type="varchar" MaxLength="7" />
+    <Property Name="LastUpdateDate" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="DetailFinalGoodsReceipt">
+    <Key>
+      <PropertyRef Name="FinalGoodsReceiptID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="FinalGoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="VendorID" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="DetailGoodsReceipt">
+    <Key>
+      <PropertyRef Name="GoodsReceiptID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="GoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="VendorID" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="DetailGoodsReceiptCheck">
+    <Key>
+      <PropertyRef Name="GoodsReceiptCheckID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="GoodsReceiptCheckID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="VendorID" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="DetailSalesTransaction">
+    <Key>
+      <PropertyRef Name="SalesTransactionID" />
+      <PropertyRef Name="CheeseID" />
+    </Key>
+    <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="CheeseID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="ItemPrice" Type="int" />
+    <Property Name="TotalPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="DetailSuppliesTransaction">
+    <Key>
+      <PropertyRef Name="SuppliesTransactionID" />
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="int" />
+    <Property Name="VendorID" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="DetailWarehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+      <PropertyRef Name="ProductID" />
+    </Key>
+    <Property Name="WarehouseID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="ProductID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Status" Type="varchar(max)" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="EmployeeID" />
+    </Key>
+    <Property Name="EmployeeID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="EmployeeName" Type="varchar" MaxLength="25" />
+    <Property Name="EmployeeGender" Type="varchar" MaxLength="25" />
+    <Property Name="Division" Type="varchar" MaxLength="25" />
+    <Property Name="Salary" Type="int" />
+    <Property Name="DateOfBirth" Type="date" />
+    <Property Name="JoinDate" Type="datetime" />
+    <Property Name="EmployeeEmail" Type="varchar" MaxLength="50" />
+    <Property Name="PhoneNumber" Type="varchar" MaxLength="25" />
+    <Property Name="RegisteredBy" Type="varchar" MaxLength="7" />
+    <Property Name="EmployeeStatus" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="FinalGoodsReceipt">
+    <Key>
+      <PropertyRef Name="FinalGoodsReceiptID" />
+    </Key>
+    <Property Name="FinalGoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="GoodsReceiptCheckID" Type="varchar" MaxLength="7" />
+    <Property Name="FinalGoodsReceiptDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="GoodsReceipt">
+    <Key>
+      <PropertyRef Name="GoodsReceiptID" />
+    </Key>
+    <Property Name="GoodsReceiptID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" />
+    <Property Name="GoodsReceiptDate" Type="datetime" />
+    <Property Name="GoodsReceiptDescription" Type="varchar" MaxLength="100" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="GoodsReceiptCheck">
+    <Key>
+      <PropertyRef Name="GoodsReceiptCheckID" />
+    </Key>
+    <Property Name="GoodsReceiptCheckID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="GoodsReceiptID" Type="varchar" MaxLength="7" />
+    <Property Name="GoodsReceiptCheckDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="Milk">
+    <Key>
+      <PropertyRef Name="MilkID" />
+    </Key>
+    <Property Name="MilkID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="MilkName" Type="varchar" MaxLength="25" />
+    <Property Name="MilkInputDate" Type="datetime" />
+    <Property Name="InputBy" Type="varchar" MaxLength="7" />
+    <Property Name="MilkLifeTime" Type="date" />
+  </EntityType>
+  <EntityType Name="OutgoingReport">
+    <Key>
+      <PropertyRef Name="OutgoingReportID" />
+    </Key>
+    <Property Name="OutgoingReportID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" />
+    <Property Name="ScheduleID" Type="varchar" MaxLength="7" />
+    <Property Name="CheckStatus" Type="varchar" MaxLength="25" />
+    <Property Name="DeliveryStatus" Type="varchar" MaxLength="25" />
+    <Property Name="PackedBy" Type="varchar" MaxLength="7" />
+    <Property Name="ShippedBy" Type="varchar" MaxLength="7" />
+    <Property Name="OutgoingReportDescription" Type="varchar" MaxLength="100" />
+    <Property Name="CheckedBy" Type="varchar" MaxLength="7" />
+    <Property Name="CheckedDate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="SalesInvoice">
+    <Key>
+      <PropertyRef Name="SalesInvoiceID" />
+    </Key>
+    <Property Name="SalesInvoiceID" Type="varchar" MaxLength="7" Nullable="false" />
+  </EntityType>
+  <EntityType Name="SalesTransaction">
+    <Key>
+      <PropertyRef Name="SalesTransactionID" />
+    </Key>
+    <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="CustomerID" Type="varchar" MaxLength="7" />
+    <Property Name="SalesTransactionDate" Type="datetime" />
+    <Property Name="PaymentType" Type="varchar" MaxLength="25" />
+    <Property Name="ShippingLocation" Type="varchar" MaxLength="50" />
+    <Property Name="Transportation" Type="varchar" MaxLength="50" />
+    <Property Name="ShippingTime" Type="datetime" />
+    <Property Name="NumberOfBatch" Type="int" />
+    <Property Name="SalesTransactionStatus" Type="varchar" MaxLength="25" />
+    <Property Name="InsertBy" Type="varchar" MaxLength="7" />
+    <Property Name="InsertDate" Type="datetime" />
+    <Property Name="ConfirmBy" Type="varchar" MaxLength="7" />
+    <Property Name="ConfirmDate" Type="datetime" />
+    <Property Name="TransportPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="Schedule">
+    <Key>
+      <PropertyRef Name="ScheduleID" />
+      <PropertyRef Name="SalesTransactionID" />
+    </Key>
+    <Property Name="ScheduleID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="SalesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="BatchNumberSchedule" Type="int" />
+    <Property Name="PackingDate" Type="date" />
+    <Property Name="ShippingDate" Type="date" />
+    <Property Name="ScheduleStatus" Type="varchar" MaxLength="25" />
+  </EntityType>
+  <EntityType Name="SuppliesTransaction">
+    <Key>
+      <PropertyRef Name="SuppliesTransactionID" />
+    </Key>
+    <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="SuppliesTransactionDate" Type="datetime" />
+    <Property Name="SuppliesTransactionStatus" Type="varchar" MaxLength="25" />
+    <Property Name="SuppliesTransactionDescription" Type="varchar" MaxLength="100" />
+    <Property Name="RequestBy" Type="varchar" MaxLength="7" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="Vendor">
+    <Key>
+      <PropertyRef Name="VendorID" />
+    </Key>
+    <Property Name="VendorID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="VendorName" Type="varchar" MaxLength="25" />
+    <Property Name="VendorRegisterDate" Type="datetime" />
+    <Property Name="VendorRegisterBy" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityType Name="VerifiedInvoice">
+    <Key>
+      <PropertyRef Name="VerifiedInvoiceID" />
+    </Key>
+    <Property Name="VerifiedInvoiceID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="FinalGoodsReceiptID" Type="varchar" MaxLength="7" />
+    <Property Name="SuppliesTransactionID" Type="varchar" MaxLength="7" />
+    <Property Name="VerifiedInvoiceDate" Type="datetime" />
+    <Property Name="CreatedBy" Type="varchar" MaxLength="7" />
+    <Property Name="VerifiedInvoiceStatus" Type="varchar" MaxLength="25" />
+    <Property Name="ApprovedBy" Type="varchar" MaxLength="7" />
+    <Property Name="ApprovedDate" Type="datetime" />
+    <Property Name="PaidBy" Type="varchar" MaxLength="7" />
+    <Property Name="PaidConfirmationDate" Type="datetime" />
+    <Property Name="TotalPrice" Type="int" />
+  </EntityType>
+  <EntityType Name="Warehouse">
+    <Key>
+      <PropertyRef Name="WarehouseID" />
+    </Key>
+    <Property Name="WarehouseID" Type="varchar" MaxLength="7" Nullable="false" />
+    <Property Name="UpdatedDate" Type="datetime" />
+    <Property Name="UpdatedBy" Type="varchar" MaxLength="7" />
+  </EntityType>
+  <EntityContainer Name="CheeseModelStoreContainer">
+    <EntitySet Name="Cheese" EntityType="Self.Cheese" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DefectiveProduct" EntityType="Self.DefectiveProduct" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailCustomer" EntityType="Self.DetailCustomer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailEmployee" EntityType="Self.DetailEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailFinalGoodsReceipt" EntityType="Self.DetailFinalGoodsReceipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailGoodsReceipt" EntityType="Self.DetailGoodsReceipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailGoodsReceiptCheck" EntityType="Self.DetailGoodsReceiptCheck" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailSalesTransaction" EntityType="Self.DetailSalesTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailSuppliesTransaction" EntityType="Self.DetailSuppliesTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DetailWarehouse" EntityType="Self.DetailWarehouse" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FinalGoodsReceipt" EntityType="Self.FinalGoodsReceipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoodsReceipt" EntityType="Self.GoodsReceipt" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GoodsReceiptCheck" EntityType="Self.GoodsReceiptCheck" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Milk" EntityType="Self.Milk" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="OutgoingReport" EntityType="Self.OutgoingReport" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesInvoice" EntityType="Self.SalesInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SalesTransaction" EntityType="Self.SalesTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Schedule" EntityType="Self.Schedule" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="SuppliesTransaction" EntityType="Self.SuppliesTransaction" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Vendor" EntityType="Self.Vendor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="VerifiedInvoice" EntityType="Self.VerifiedInvoice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Warehouse" EntityType="Self.Warehouse" Schema="dbo" store:Type="Tables" />
+  </EntityContainer>
+</Schema>
